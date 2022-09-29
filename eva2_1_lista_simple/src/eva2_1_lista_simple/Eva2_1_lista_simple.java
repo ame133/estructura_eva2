@@ -17,11 +17,15 @@ public class Eva2_1_lista_simple {
     public static void main(String[] args) {
         // TODO code application logic here
         lista miLista = new lista();
-        miLista.add(10);
-        miLista.add(20);
-        miLista.add(30);
-        miLista.add(40);
-        miLista.add(50);
+        /*int [] arreglo = new int [1000000];
+        for (int i = 0; i < arreglo.length; i++) {
+            arreglo[i] = 1000;
+        }*/
+        for (int i = 0; i < 1000000; i++) { //BIG OH (N2)
+            miLista.add(10000);
+        }
+        //miLista.imprimir();
     }
+    
     
 }
