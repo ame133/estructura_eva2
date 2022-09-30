@@ -1,15 +1,5 @@
 package eva2_1_lista_simple;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author moviles
- */
 public class lista {
     private nodo inicio;
     private nodo fin;
@@ -26,6 +16,7 @@ public class lista {
                 System.out.print(temp.getValor() + " - ");
                 temp = temp.getNext();
             }
+            System.out.println("");
     }
     //AGREGAR UN NODO AL FINAL DE LA LISTA
     public void add(int valor){
@@ -60,8 +51,28 @@ public class lista {
             }
             return cont;
     }
-    public void agregarEn(int valor, int pos) {
+    public void insertarEn(int valor, int pos) throws Exception{
         //
-        
+        int canNodos = size();
+        if (pos < 0) {
+            throw new Exception("No puede insertar una posicion negativa");
+        }else if(pos >= canNodos){
+            throw new Exception (pos + " no es una posicion valida en la lista");
+        }else{
+            nodo newNodo = new nodo(valor);
+            if (pos == 0) { //insertar al inicio de la lista
+                newNodo.setNext(inicio);
+                inicio = newNodo;
+            }else{
+                nodo temp = inicio;
+                int cont =0;
+                //movemos a temp con un ciclo 
+                while(cont < pos-1){
+                    temp = temp.getNext();
+                    cont ++;
+                }
+                System.out.println(temp.getValor() + " - ");
+            }
+        }
     }
 }
