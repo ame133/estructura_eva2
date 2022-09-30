@@ -21,11 +21,19 @@ public class Eva2_1_lista_simple {
         for (int i = 0; i < arreglo.length; i++) {
             arreglo[i] = 1000;
         }*/
-        for (int i = 0; i < 1000000; i++) { //BIG OH (N2)
-            miLista.add(10000);
-        }
         //miLista.imprimir();
-    }
-    
-    
+        miLista.add(10);
+        miLista.add(20);
+        miLista.add(30);
+        miLista.add(40);
+        miLista.add(50);
+        miLista.add(60);
+        miLista.imprimir();
+        try{
+            miLista.insertarEn(70, 3);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } 
+        
+    }  
 }
