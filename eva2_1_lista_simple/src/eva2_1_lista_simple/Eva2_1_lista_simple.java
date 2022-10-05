@@ -34,6 +34,8 @@ public class Eva2_1_lista_simple {
         } catch (Exception ex){
             ex.printStackTrace();
         } 
-        
+        miLista.imprimir();
+        miLista.deleteAll();
+        miLista.imprimir();
     }  
 }
