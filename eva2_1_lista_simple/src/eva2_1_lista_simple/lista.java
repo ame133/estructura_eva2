@@ -10,6 +10,9 @@ public class lista {
         this.fin = null;
     }
     public void imprimir(){
+        if (inicio == null) {
+            System.out.println("LISTA VACIA");
+        }else{
         nodo temp = inicio;
             //movemos a temp con un ciclo 
             while(temp != null){
@@ -17,6 +20,8 @@ public class lista {
                 temp = temp.getNext();
             }
             System.out.println("");
+        }
+            
     }
     //AGREGAR UN NODO AL FINAL DE LA LISTA
     public void add(int valor){
@@ -71,8 +76,24 @@ public class lista {
                     temp = temp.getNext();
                     cont ++;
                 }
-                System.out.println(temp.getValor() + " - ");
+                //System.out.println(temp.getValor() + " - ");
+                newNodo.setNext(temp.getNext());
+                temp.setNext(newNodo);
             }
+        }
+    }
+    public void deleteAll(){
+        inicio = null;
+        fin = null;
+    }
+    public void delete1(int pos)throws Exception{
+        int canNodos = size();
+        if (pos < 0) {
+            throw new Exception("No puede insertar una posicion negativa");
+        }else if(pos >= canNodos){
+            throw new Exception (pos + " no es una posicion valida en la lista");
+        }else{
+            
         }
     }
 }
