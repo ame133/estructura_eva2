@@ -5,6 +5,9 @@
  */
 package eva2_1_lista_simple;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author moviles
@@ -35,7 +38,13 @@ public class Eva2_1_lista_simple {
             ex.printStackTrace();
         } 
         miLista.imprimir();
-        miLista.deleteAll();
+        //miLista.deleteAll();
+        //miLista.imprimir();
+        try {
+            miLista.delete1(0);
+        } catch (Exception ex) {
+            Logger.getLogger(Eva2_1_lista_simple.class.getName()).log(Level.SEVERE, null, ex);
+        }
         miLista.imprimir();
     }  
 }
