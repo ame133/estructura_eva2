@@ -93,7 +93,37 @@ public class lista {
         }else if(pos >= canNodos){
             throw new Exception (pos + " no es una posicion valida en la lista");
         }else{
+            //BORRAR EL PRIMER NODO SI SOLO HAY UN NODO
+            if (canNodos == 1) {
+                deleteAll();
+            }else{ //eliminar el primer nodo cuando hay mas de 1 nodo en la lista
+                if (pos == 0) {
+                    inicio = inicio.getNext();
+                }else{//borrar una posicion intermedia
+                    nodo temp = inicio;
+                int cont =0;
+                //movemos a temp con un ciclo 
+                    while(cont < pos-1){
+                        temp = temp.getNext();
+                        cont ++;
+                    }
+                    temp.setNext(temp.getNext().getNext());
+                    if (pos == (canNodos- 1)) { // reconectar a fin si se elimina el ultimo nodo
+                        fin = temp;
+                    }
+                }
+            }
+        }
+    }
+    public int obtenValorEn(int pos) throws Exception{
+        int canNodos = size();
+        if (pos < 0) {
+            throw new Exception("No puede insertar una posicion negativa");
+        }else if(pos >= canNodos){
+            throw new Exception (pos + " no es una posicion valida en la lista");  
+        }else{
             
         }
     }
 }
+
