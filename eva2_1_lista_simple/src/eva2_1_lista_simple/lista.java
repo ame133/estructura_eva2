@@ -3,14 +3,24 @@ package eva2_1_lista_simple;
 public class lista {
     private nodo inicio;
     private nodo fin;
+    private int cont;
 
     //POR DEFAULT LA LISTA ESTA VACIA
     public lista() {
         this.inicio = null; // NO HAY NODOS EN LA LISTA
         this.fin = null;
+        this.cont = 0;
     }
+    
+    public boolean listaVacia(){
+        if (inicio == null) 
+            return true;
+        else
+            return false;
+    }
+    
     public void imprimir(){
-        if (inicio == null) {
+        if (listaVacia()) {
             System.out.println("LISTA VACIA");
         }else{
         nodo temp = inicio;
@@ -45,16 +55,17 @@ public class lista {
             fin.setNext(newNodo);
             fin = newNodo;
         }
+        cont++;
     }
     public int size(){
-        int cont = 0;
+        /*int cont = 0;
         nodo temp = inicio;
             //movemos a temp con un ciclo 
             while(temp != null){
                 cont++;
                 temp = temp.getNext();
-            }
-            return cont;
+            }*/
+            return this.cont;
     }
     public void insertarEn(int valor, int pos) throws Exception{
         //
@@ -81,10 +92,12 @@ public class lista {
                 temp.setNext(newNodo);
             }
         }
+        this.cont++;
     }
     public void deleteAll(){
         inicio = null;
         fin = null;
+        cont = 0;
     }
     public void delete1(int pos)throws Exception{
         int canNodos = size();
@@ -112,18 +125,28 @@ public class lista {
                         fin = temp;
                     }
                 }
+                this.cont--;
             }
         }
     }
     public int obtenValorEn(int pos) throws Exception{
         int canNodos = size();
+        int valor = 0;
         if (pos < 0) {
             throw new Exception("No puede insertar una posicion negativa");
         }else if(pos >= canNodos){
             throw new Exception (pos + " no es una posicion valida en la lista");  
         }else{
-            
+            nodo temp = inicio;
+            int cont =0;
+            //movemos a temp con un ciclo 
+            while(cont < pos){
+                temp = temp.getNext();
+                cont ++;
+            }
+            valor = temp.getValor();
         }
+        return valor;
     }
 }
 
