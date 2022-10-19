@@ -110,7 +110,7 @@ public class ListaDoble {
                         temp = temp.getNext();
                         cont ++;
                     }
-                    temp.setNext(temp.getNext());
+                    temp.setNext(temp.getNext().getNext()); 
                     temp.setPrevio(temp.getPrevio());
                     if (pos == (canNodos- 1)) { // reconectar a fin si se elimina el ultimo nodo
                         fin = temp;
