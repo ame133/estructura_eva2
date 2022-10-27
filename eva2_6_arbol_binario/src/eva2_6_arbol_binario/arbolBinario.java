@@ -60,4 +60,27 @@ public class arbolBinario {
             
         }
     }
+    
+    public void preOrden(){
+            preOrdenRecu(root);
+        System.out.println("");
+        }
+    private void preOrdenRecu(nodo nodo){
+        if (nodo != null) {
+            preOrdenRecu(nodo.getIzquierda());
+            System.out.print(nodo.getValor() + " - ");
+            preOrdenRecu(nodo.getDerecha());
+        }
+    }
+    public void posOrden(){
+        posOrdenRecu(root);
+        System.out.println("");
+    }
+    private void posOrdenRecu(nodo nodo){
+        if (nodo != null) {
+            posOrdenRecu(nodo.getIzquierda());
+            posOrdenRecu(nodo.getDerecha());
+            System.out.print(nodo.getValor() + " - ");           
+        }
+    }
 }
